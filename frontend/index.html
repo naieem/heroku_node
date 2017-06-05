@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Angular Front end Design</title>
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body ng-app="BeerFront">
+    <div ng-controller="dashboardController as vm">
+        <div class="container">
+            <h2>All list</h2>
+            <table>
+                <th>
+                    <tr>
+                        <td>Name</td>
+                        <td>Type</td>
+                        <td>Quantty</td>
+                    </tr>
+                </th>
+                <tr ng-repeat="beer in vm.beers">
+                    <td>{{ beer.name }}</td>
+                    <td>{{ beer.type }}</td>
+                    <td>{{beer.quantity}}</td>
+                </tr>
+            </table>
+            <h2>Add Information</h2>
+            <form ng-submit="vm.saveData(beer)">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="text" class="form-control"  placeholder="Name" ng-model="beer.name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="text" class="form-control"  placeholder="Type" ng-model="beer.type">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="text" class="form-control" placeholder="Quantity" ng-model="beer.quantity">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/controller/dashboard.controller.js"></script>
+    <script src="js/service/beerService.js"></script>
+</body>
+
+</html>
